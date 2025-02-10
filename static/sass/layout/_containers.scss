@@ -13,14 +13,18 @@ $breakpoints: (
     margin-right: auto;
 }
 
+@mixin container-media($size) {
+    @media (width >=$size) {
+        max-width: $size;
+    }
+}
+
 .container {
     @extend .container-base;
     max-width: calc(100% - 15px);
 
     @each $breakpoint, $size in $breakpoints {
-        @media (width >=$size) {
-            max-width: $size;
-        }
+        @include container-media($size);
     }
 }
 
@@ -33,9 +37,6 @@ $breakpoints: (
     .container-#{$breakpoint} {
         @extend .container-base;
         max-width: calc(100% - 15px);
-
-        @media (width >= $size) {
-            max-width: $size;
-        }
+        @include container-media($size);
     }
 }
