@@ -6,7 +6,7 @@ $breakpoints: (
     xl: 1200px
 );
 
-.container-base {
+%container-base {
     width: 100%;
     padding-inline: 15px;
     margin-left: auto;
@@ -20,7 +20,7 @@ $breakpoints: (
 }
 
 .container {
-    @extend .container-base;
+    @extend %container-base;
     max-width: calc(100% - 15px);
 
     @each $breakpoint, $size in $breakpoints {
@@ -29,13 +29,13 @@ $breakpoints: (
 }
 
 .container-fluid {
-    @extend .container-base;
+    @extend %container-base;
     max-width: calc(100% - 15px);
 }
 
 @each $breakpoint, $size in $breakpoints {
     .container-#{$breakpoint} {
-        @extend .container-base;
+        @extend %container-base;
         max-width: calc(100% - 15px);
         @include container-media($size);
     }

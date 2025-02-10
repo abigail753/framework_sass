@@ -149,7 +149,7 @@ li {
 }
 
 /* Containers */
-.container-base, .container-xl, .container-lg, .container-md, .container-sm, .container-fluid, .container {
+.container-xl, .container-lg, .container-md, .container-sm, .container-fluid, .container {
   width: 100%;
   padding-inline: 15px;
   margin-left: auto;
