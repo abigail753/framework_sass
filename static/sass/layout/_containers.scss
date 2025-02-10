@@ -1,10 +1,5 @@
 /* Containers */
-$breakpoints: (
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px
-);
+@use '../base/variables' as vars;
 
 %container-base {
     width: 100%;
@@ -27,7 +22,7 @@ $breakpoints: (
 .container {
     @extend %container-base-extra;
 
-    @each $breakpoint, $size in $breakpoints {
+    @each $breakpoint, $size in vars.$breakpoints {
         @include container-media($size);
     }
 }
@@ -36,7 +31,7 @@ $breakpoints: (
     @extend %container-base-extra;
 }
 
-@each $breakpoint, $size in $breakpoints {
+@each $breakpoint, $size in vars.$breakpoints {
     .container-#{$breakpoint} {
         @extend %container-base-extra;
         @include container-media($size);
