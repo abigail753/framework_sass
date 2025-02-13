@@ -287,6 +287,75 @@ li {
   padding-inline: calc(var(--gutter-x) / 2);
 }
 
+/* Ejercicio 1 */
+@media (min-width: 576px) {
+  .fs-sm-1 {
+    font-size: 0.875rem;
+  }
+  .fs-sm-2 {
+    font-size: 1rem;
+  }
+  .fs-sm-3 {
+    font-size: 1.25rem;
+  }
+  .fs-sm-4 {
+    font-size: 1.5rem;
+  }
+  .fs-sm-5 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .fs-md-1 {
+    font-size: 0.875rem;
+  }
+  .fs-md-2 {
+    font-size: 1rem;
+  }
+  .fs-md-3 {
+    font-size: 1.25rem;
+  }
+  .fs-md-4 {
+    font-size: 1.5rem;
+  }
+  .fs-md-5 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .fs-lg-1 {
+    font-size: 0.875rem;
+  }
+  .fs-lg-2 {
+    font-size: 1rem;
+  }
+  .fs-lg-3 {
+    font-size: 1.25rem;
+  }
+  .fs-lg-4 {
+    font-size: 1.5rem;
+  }
+  .fs-lg-5 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .fs-xl-1 {
+    font-size: 0.875rem;
+  }
+  .fs-xl-2 {
+    font-size: 1rem;
+  }
+  .fs-xl-3 {
+    font-size: 1.25rem;
+  }
+  .fs-xl-4 {
+    font-size: 1.5rem;
+  }
+  .fs-xl-5 {
+    font-size: 2rem;
+  }
+}
 .debug-border {
   margin-block: 10px;
 }
