@@ -1,0 +1,21 @@
+/* Ejercicio 3 */
+@use "sass:math";
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$columns: 12;
+
+@each $breakpoint, $size in $breakpoints {
+  @media (min-width: $size) {
+    @for $i from 1 through $columns {
+      .col-#{$breakpoint}-#{$i} {
+        width: math.percentage(math.div($i, $columns));
+      }
+    }
+  }
+}
