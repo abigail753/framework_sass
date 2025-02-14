@@ -8,13 +8,23 @@ $breakpoints: (
   xl: 1200px
 );
 
-$columns: 12;
+$gutters: (
+  0: 8px,
+  1: 16px,
+  2: 32px,
+  3: 64px,
+  4: 128px
+);
 
-@each $breakpoint, $size in $breakpoints {
-  @media (min-width: $size) {
-    @for $i from 1 through $columns {
-      .col-#{$breakpoint}-#{$i} {
-        width: math.percentage(math.div($i, $columns));
+@each $breakpoint, $min-width in $breakpoints {
+  @media (min-width: $min-width) {
+    @each $num, $gutter in $gutters {
+      .gx-#{$breakpoint}-#{$num} {
+        column-gap: $gutter;
+      }
+
+      .gy-#{$breakpoint}-#{$num} {
+        row-gap: $gutter;
       }
     }
   }
