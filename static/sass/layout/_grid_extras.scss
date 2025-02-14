@@ -1,6 +1,9 @@
-/* Ejercicio 3 */
 @use "sass:math";
 
+// Variable global que controla la generación de clases responsive.
+$generate-responsive-classes: true; // Cámbialo a false para no generar las clases.
+
+// Se definen los breakpoints, que se usarán en todas las clases responsive.
 $breakpoints: (
   sm: 576px,
   md: 768px,
@@ -8,24 +11,56 @@ $breakpoints: (
   xl: 1200px
 );
 
-$gutters: (
-  0: 8px,
-  1: 16px,
-  2: 32px,
-  3: 64px,
-  4: 128px
-);
+@if $generate-responsive-classes {
+  $font-sizes: (
+    1: 0.875rem,
+    2: 1rem,
+    3: 1.25rem,
+    4: 1.5rem,
+    5: 2rem
+  );
 
-@each $breakpoint, $min-width in $breakpoints {
-  @media (min-width: $min-width) {
-    @each $num, $gutter in $gutters {
-      .gx-#{$breakpoint}-#{$num} {
-        column-gap: $gutter;
-      }
-
-      .gy-#{$breakpoint}-#{$num} {
-        row-gap: $gutter;
+  @each $breakpoint, $min-width in $breakpoints {
+    @media (min-width: $min-width) {
+      @each $number, $size in $font-sizes {
+        .fs-#{$breakpoint}-#{$number} {
+          font-size: $size;
+        }
       }
     }
   }
+
+  $columns: 12;
+  @each $breakpoint, $min-width in $breakpoints {
+    @media (min-width: $min-width) {
+      @for $i from 1 through $columns {
+        .col-#{$breakpoint}-#{$i} {
+          width: math.percentage(math.div($i, $columns));
+        }
+      }
+    }
+  }
+
+  $gutters: (
+    0: 8px,
+    1: 16px,
+    2: 32px,
+    3: 64px,
+    4: 128px
+  );
+
+  @each $breakpoint, $min-width in $breakpoints {
+    @media (min-width: $min-width) {
+      @each $index, $gutter in $gutters {
+        .gx-#{$breakpoint}-#{$index} {
+          column-gap: $gutter;
+        }
+        .gy-#{$breakpoint}-#{$index} {
+          row-gap: $gutter;
+        }
+      }
+    }
+  }
+} @else {
+  // FALSE
 }
